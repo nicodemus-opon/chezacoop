@@ -1,6 +1,6 @@
 from datetime import datetime
 from decimal import Decimal
-from sqlalchemy import Column, Integer, String, Numeric, DateTime, Text, ForeignKey, UniqueConstraint
+from sqlalchemy import Boolean, Column, Integer, String, Numeric, DateTime, Text, ForeignKey, UniqueConstraint
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -26,6 +26,7 @@ class User(Base):
     name = Column(String(255), nullable=False)
     member_number = Column(String(50), unique=True)
     password = Column(String(255), nullable=False)
+    phone_verified = Column(Boolean, nullable=False, default=False)
     role_id = Column(Integer, ForeignKey('roles.id'))
     created_at = Column(DateTime, default=datetime.now())
     deleted_at = Column(DateTime)
