@@ -1,4 +1,4 @@
-# Chezacoop (Prototype)
+# Chezacoop
 
 Brief instructions to run the app locally.
 
