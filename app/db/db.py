@@ -1,7 +1,16 @@
 import os
+
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
 
-db_url = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}"
-engine = create_engine(db_url)
-db_connection = engine.connect()
+load_dotenv()
+
+db_url = os.getenv('DATABASE_URL')
+engine = create_engine(db_url) if db_url else None
+
+
+def get_engine():
+	if engine is None:
+		raise RuntimeError('DATABASE_URL is not set.')
+	return engine
