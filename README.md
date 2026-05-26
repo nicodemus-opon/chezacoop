@@ -25,12 +25,6 @@ JWT_SECRET=change-me
 BULKSMS_API_KEY=api_key
 ```
 
-Optional (for SMS):
-
-```env
-BULKSMS_API_KEY=your_api_key
-```
-
 ## 4) Run database migrations
 
 ```bash
